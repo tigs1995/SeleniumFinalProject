@@ -53,7 +53,7 @@ public class RegisterLoginTest {
 	
 	@After
 	public void teardown() throws Exception {
-//		this.driver.close();
+		this.driver.close();
 	}
 	
 	@Test
@@ -66,7 +66,7 @@ public class RegisterLoginTest {
 		Thread.sleep(1000);
 		this.registerPage.submit();
 		Thread.sleep(1000);
-		this.registerPage.loginButtonClick();
+		this.driver.get(this.location);
 		
 		//Tests login page
 		this.loginPage.loginDetails(this.username, this.password);

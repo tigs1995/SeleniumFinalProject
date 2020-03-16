@@ -8,16 +8,16 @@ public class LoginPage {
 	@FindBy(id = "loginTitle")
 	private WebElement loginTitle;
 	
-	@FindBy(xpath = "/html/body/div/div[2]/form/input[1]")
+	@FindBy(id = "username")
 	private WebElement username;
 	
-	@FindBy(xpath = "/html/body/div/div[2]/form/input[2]")
+	@FindBy(id = "password")
 	private WebElement password;
 	
-	@FindBy(xpath = "/html/body/div/div[2]/form/button")
+	@FindBy(id = "loginButton")
 	private WebElement loginButton;
 	
-	@FindBy(xpath = "/html/body/div/div[2]/p/button")
+	@FindBy(id = "registerButton")
 	private WebElement registerButton;
 	
 	public String getLoginTitle() {

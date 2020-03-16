@@ -1,7 +1,7 @@
 package com.bae.manager.selenium.constants;
 
 public class Constants {
-	public static final String PATH = "C:\\Users\\Admin\\Desktop\\BookManagerSelenium-master\\chromedriver.exe";
+	public static final String PATH = "/home/alex/Documents/chromedriver_linux64/chromedriver";
 	public static final String PROPERTY = "webdriver.chrome.driver";
 	
 	public static final String HOST = "localhost:";

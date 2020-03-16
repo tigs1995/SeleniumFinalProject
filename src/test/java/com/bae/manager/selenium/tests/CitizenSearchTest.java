@@ -65,7 +65,7 @@ public class CitizenSearchTest {
 		Thread.sleep(1000);
 		this.registerPage.submit();
 		Thread.sleep(1000);
-		this.registerPage.loginButtonClick();
+		this.driver.get(this.location);
 		Thread.sleep(1000);
 		// Logs in user
 		this.loginPage.loginDetails(this.username, this.password);
@@ -77,7 +77,7 @@ public class CitizenSearchTest {
 
 	@After
 	public void teardown() throws Exception {
-//		this.driver.close();
+		this.driver.close();
 	}
 
 	@Test
@@ -86,10 +86,30 @@ public class CitizenSearchTest {
 		Thread.sleep(1000);
 		this.citizenSearchPage.searchDetails(this.forenames, this.surname);
 		Thread.sleep(1000);
-		System.out.println("HERE");
 		this.citizenSearchPage.clickSearch();
 		Thread.sleep(1000);
 		assertEquals(this.location + Constants.CITIZEN_LIST + "/" + this.forenames + "/" + this.surname, driver.getCurrentUrl());
+	//	assertEquals("Bob Campbell", citizenSearchPage.personCardBobCampbell.getText());
+		this.citizenSearchPage.clickGoToPerson();
+		assertEquals(this.location + "/CitizenHome/9237829918", driver.getCurrentUrl());
+		
+	}
+	
+	@Test
+	public void citizenFurtherDetails() throws InterruptedException {
+		this.homePage.clickCitizen();
+		this.citizenSearchPage.searchDetails(this.forenames, this.surname);
+		this.citizenSearchPage.clickSearch();
+		this.citizenSearchPage.clickGoToPerson();
+		this.citizenSearchPage.goToVehicle();
+		assertEquals(this.location + "/CitizenVehicles/9237829918", driver.getCurrentUrl());
+		driver.navigate().back();
+		this.citizenSearchPage.goToAssociate();
+		assertEquals(this.location + "/CitizenAssociates/9237829918", driver.getCurrentUrl());
+		driver.navigate().back();
+		this.citizenSearchPage.goToFinance();
+		assertEquals(this.location + "/CitizenFinancials/9237829918", driver.getCurrentUrl());	
+
 	}
 	
 }

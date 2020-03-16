@@ -62,7 +62,7 @@ public class HomePageTest {
 		Thread.sleep(1000);
 		this.registerPage.submit();
 		Thread.sleep(1000);
-		this.registerPage.loginButtonClick();
+		this.driver.get(this.location);
 		// Logs in user
 		this.loginPage.loginDetails(this.username, this.password);
 		Thread.sleep(1000);
